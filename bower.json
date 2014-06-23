@@ -1,0 +1,12 @@
+{
+    "name": "tvshow-angular",
+    "description": "application created for practicing with angularjs",
+    "version": "0.0.0",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "angular": "1.2.x",
+        "bootstrap": "~3.x",
+        "html5-boilerplate": "~4.3.0"
+    }
+}

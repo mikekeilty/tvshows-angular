@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TV Show App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="TVShowApp" ng-controller="showController">
+<div class="container">
+    <nav class="navbar-fixed-top navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <div class="navbar-brand">
+                TV SHOW PREMIERES
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container-fluid tvshow-container">
+    <ul class="tvshow-list">
+        <li class="tvshow-item" ng-repeat="tvshow in results">
+            <div class="row">
+                <div class="col-md-3 first-column">
+                    <img class="tv-image" src="{{tvshow.episode.images.screen}}" />
+                </div>
+                <div class="col-md-6">
+                    <h3>{{tvshow.show.title}}: {{tvshow.episode.title}}</h3>
+                    <p>{{tvshow.episode.overview}}</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="fulldate pull-right label label-info">{{tvshow.date}}</div>
+                    <ul class="show-info">
+                        <li><strong>On Air:</strong> {{tvshow.show.air_day}} {{tvshow.show.air_time}}</li>
+                        <li><strong>Network:</strong> {{tvshow.show.network}}</li>
+                        <li class="ratings">
+                            <strong>Ratings:</strong>
+                            <span class="glyphicon glyphicon-thumbs-up"></span> {{tvshow.episode.ratings.loved}}
+                            <span class="glyphicon glyphicon-thumbs-down"></span> {{tvshow.episode.ratings.hated}}
+                        </li>
+                        <li>
+                            <strong>Score:</strong>
+                            <span class="label label-important" ng-class="{'label-success': tvshow.episode.ratings.percentage >= 50, 'label-danger': tvshow.episode.ratings.percentage < 50}">
+                                <strong>%</strong> {{tvshow.episode.ratings.percentage}}
+                            </span>
+                        </li>
+                        <li><strong>Season #:</strong> {{tvshow.episode.season}}</li>
+                        <li><strong>Genres:</strong> <span class="label label-inverse genre" ng-repeat="genre in tvshow.show.genres">{{genre}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+</body>
+</html>

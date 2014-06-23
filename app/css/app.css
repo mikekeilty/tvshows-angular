@@ -1,0 +1,23 @@
+img.tv-image {
+    max-width: 225px;
+}
+
+.tvshow-container {
+    margin-top: 70px;
+}
+
+.tvshow-list {
+    list-style-type: none;
+}
+
+.show-info {
+    list-style-type: none;
+}
+
+.tvshow-item {
+    margin-bottom: 50px;
+}
+
+.tvshow-item h3 {
+    margin-top: 0;
+}
